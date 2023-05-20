@@ -1,0 +1,20 @@
+<div class="container">
+    <div *ngIf="(basketService.korpaSource$ | async) === null">
+        <p>There are no items in your basket</p>
+    </div>
+    <ng-container *ngIf="(basketService.korpaSource$ | async) as basket">
+        <div class="container">
+            <div class="row">
+                <app-baske-summary (removeStavka)="removeItem($event)"></app-baske-summary>
+            </div>
+            <div class="row">
+                <div class="col-6 offset-6">
+                    <app-order-totals></app-order-totals>
+                    <div class="d-grid">
+                        <a routerLink="/checkout" class="btn btn-outline-primary py-2">Proceed to checkout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>

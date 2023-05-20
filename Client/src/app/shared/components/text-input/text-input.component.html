@@ -1,0 +1,11 @@
+<div class="form-floating mb-3">
+    <input type={{type}} [formControl]="control" placeholder="{{label}}" class="form-control"
+        [ngClass]="(control.touched) ? control.invalid ? 'is-invalid':'is-valid':null">
+        <div *ngIf="control.status==='PENDING'" class="fa fa-spinner fa-spin loader"></div>
+    <label for="floatingInput">{{label}}</label>
+    <div *ngIf="control.errors?.['required']" class="invalid-feedback">{{label}} je obavezno polje.</div>
+    <div *ngIf="control.errors?.['minLength']" class="invalid-feedback">{{label}} mora sadrzati barem 3 znaka.</div>
+    <div *ngIf="control.errors?.['maxLength']" class="invalid-feedback">{{label}} ne moze sadrzati vise od 100 znakova.</div>
+    <div *ngIf="control.errors?.['pattern']" class="invalid-feedback">{{label}} mora sadrzati barem 1 malo slovo, 1 veliko slovo, 1 broj i 1 znak.</div>
+    <div *ngIf="control.errors?.['korisnickoImeExists']" class="invalid-feedback">Korisnicko ime je zauzeto.</div>
+</div>

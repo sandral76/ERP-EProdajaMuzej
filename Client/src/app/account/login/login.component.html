@@ -1,0 +1,14 @@
+<div class="d-flex justify-content-center  mt-5">
+  <div class="col-3">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="text-center mb-4">
+        <h1 class="mb-3">Prijava</h1>
+      </div>
+      <app-text-input [formControl]="loginForm.controls['korisnickoIme']"[label]="'Korisnicko ime'" [type]="'text'"></app-text-input>
+      <app-text-input [formControl]="loginForm.controls['lozinka']" [label]="'Lozinka'" [type]="'password'"></app-text-input>
+      <div class="d-grid">
+        <button [disabled]="loginForm.invalid" class="btn btn-lg btn-primary mt-3" type="submit">Prijavi se</button>
+      </div>
+    </form>
+  </div>
+</div>

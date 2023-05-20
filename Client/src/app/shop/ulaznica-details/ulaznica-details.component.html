@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row" *ngIf="ulaznica">
+        <!--<div> SLIKE OVDEEEE
+    <img src="{{ulaznica.ulaznicaSlika}}" alt="{{ulaznica.izlozba}}" class="w-100">
+</div>-->
+        <div clas="col-6 mt-5">
+            <h2>{{ulaznica.izlozba}}</h2>
+            <p style="font-size: 2em;">{{ulaznica.cenaUlaznice | currency:'RSD'}}</p>
+            <div class="d-flex justify-content start align-items-center">
+               <!-- <i class="fa fa-minus-circle text-warning me-2" style="cursor: pointer; font-size: 2em;"></i>-->
+                <span class="font-weight-bold" style="font-size: 1.5em;">1</span>
+              <!--<i class="fa fa-plus-circle text-warning ms-2" style="cursor: pointer; font-size: 2em;"></i>-->
+                <button class="btn btn-outline-secondary ms-4">Dodaj u korpu</button>
+            </div>
+            <div class="row mt-4">
+                <h4>Opis</h4>
+                <p>{{ulaznica.ulaznicaId}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
