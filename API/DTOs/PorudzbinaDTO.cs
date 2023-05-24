@@ -20,6 +20,8 @@ namespace API.DTOs
 
         public virtual string Korisnik { get; set; } = null!;
         public virtual ICollection<StavkaPorudzbineDTO>? StavkaPorudzbines { get; set; }
+        public string PaymentIntendId { get; set; }
+        
 
     }
 }

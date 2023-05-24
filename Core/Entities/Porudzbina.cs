@@ -2,7 +2,7 @@
 
 public partial class Porudzbina
 {
-         
+
     public int PorudzbinaId { get; set; }
 
     public DateTime? DatumKreiranja { get; set; }
@@ -25,6 +25,7 @@ public partial class Porudzbina
 
     public virtual Placanje? Placanje { get; set; }
 
-    public virtual ICollection<StavkaPorudzbine> StavkaPorudzbines { get; set;}
-    public List<StavkaPorudzbine> Stavke { get; }
+    public virtual ICollection<StavkaPorudzbine> StavkaPorudzbines { get; set; }
+    public string PaymentIntendId { get; set; }
+    //public List<StavkaPorudzbine> Stavke { get; }
 }

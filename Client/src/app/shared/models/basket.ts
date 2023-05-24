@@ -3,7 +3,9 @@ export interface Korpa {
     korpaId: number
     brojUlaznica: number
     ukupanIznos: number
-    stavkaPorudzbines: StavkaPorudzbine[]
+    stavkaPorudzbines: StavkaPorudzbine[],
+    clientSecret?:string,
+    paymentIntendId?:string
   }
   
   export interface StavkaPorudzbine {

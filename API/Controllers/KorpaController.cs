@@ -7,6 +7,7 @@ using Infrastructure.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
@@ -27,8 +28,10 @@ namespace API.Controllers
         [HttpGet]
         //[Authorize(Roles="Admin")]
         [EnableCors("AllowOrigin")]
-        public async Task<ActionResult<IReadOnlyList<KorpaDTO>>> GetKorpa()
+        public async Task<ActionResult<List<KorpaDTO>>> GetKorpa()
         {
+            
+             
             /*var korpe= await korpaRepo.ListAllAsync();
             return Ok(mapper.Map<IReadOnlyList<Korpa>,IReadOnlyList<KorpaDTO>>(korpe));*/
             var spec = new KorpaWithStavkaPorudzbine();
@@ -50,17 +53,45 @@ namespace API.Controllers
                 ).ToList(),
             }).ToList();*/
             
-            return Ok(mapper.Map<IReadOnlyList<Korpa>,IReadOnlyList<KorpaDTO>>(korpe));
+            return Ok(mapper.Map<List<KorpaDTO>>(korpe));
             
         }
         [HttpGet("{korpaID}")]
         //[Authorize(Roles="Admin,Registrovani korisnik,Super korisnik")]
         [EnableCors("AllowOrigin")] 
         public async Task<ActionResult<KorpaDTO>> GetKorpaByID(int korpaID){
-            var spec = new KorpaWithStavkaPorudzbine(korpaID);
+            
+            /*var spec = new KorpaWithStavkaPorudzbine(korpaID);
             var korpa=await korpaRepo.GetEntityWithSpec(spec);
+            return mapper.Map<Korpa,KorpaDTO>(korpa);*/
+            var korpa = dbContext.Korpas
+            .Include(s => s.StavkaPorudzbines)
+            .Where(s => s.KorpaId == korpaID)
+            .Select(s => new Korpa
+            {
+                KorpaId = s.KorpaId,
+            BrojUlaznica = s.BrojUlaznica,
+            UkupanIznos = s.UkupanIznos,
+            ClientSecret = s.ClientSecret,
+            PaymentIntendId = s.PaymentIntendId,
+            StavkaPorudzbines = s.StavkaPorudzbines
+            .Select(sp => new StavkaPorudzbine
+            {
+                StavkaPorudzbineId = sp.StavkaPorudzbineId,
+                CenaStavka = sp.CenaStavka,
+                PopustStavka = sp.PopustStavka,
+                UlaznicaId = sp.UlaznicaId,
+                KorpaId = sp.KorpaId,
+            })
+            .ToList()
+            })
+        .FirstOrDefault();
+            //var korpa = await korpaRepo.GetByIdAsync(korpaID);
+            //return korpa;
             return mapper.Map<Korpa,KorpaDTO>(korpa);
+
         }
+        
         [HttpPost]
         //[Authorize(Roles="Admin")]
         [EnableCors("AllowOrigin")]
@@ -73,7 +104,7 @@ namespace API.Controllers
 
         } 
         [HttpPut("{korpaID}")]
-        [Authorize(Roles="Admin")]
+        //[Authorize(Roles="Admin")]
         public async Task<ActionResult<KorpaDTO>> UpdateKorpa(int korpaID, Korpa updateKorpaRequest)
         {
             var updateKorpa=await korpaRepo.Update(updateKorpaRequest,korpaID,(existingKorpa,newKorpa)=>{

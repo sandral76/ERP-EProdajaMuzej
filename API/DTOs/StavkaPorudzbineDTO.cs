@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace API.DTOs
 {
     public class StavkaPorudzbineDTO
@@ -17,7 +12,7 @@ namespace API.DTOs
 
         public int KorpaId { get; set; }
 
-        public virtual string DatumKreiranja { get; set; } = null!;
+        public virtual DateTime? DatumKreiranja { get; set; } = null!;
 
     }
 }

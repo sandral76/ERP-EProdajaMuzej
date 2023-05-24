@@ -45,6 +45,7 @@ builder.Services.AddSingleton<IConnectionMultiplexer>(c=>{
 });
 builder.Services.AddScoped<IUlaznicaRepository, UlaznicaRepository>();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
 /*builder.Services.AddControllers().AddJsonOptions(options =>
 {
     options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;

@@ -22,6 +22,7 @@ export interface Root {
     datumAzuriranja: string
     dostavaId: number//DetaljiPorudzbine
     korisnikId: number
+    paymentIntendId?:string
     //stavkaPorudzbines: StavkaPorudzbine[]
   }
   
@@ -42,5 +43,7 @@ export interface Root {
     datumAzuriranja="2022-05-10";
     dostavaId=1; //DetaljiPorudzbine
     korisnikId=6;
+    paymentIntendId?:string
+    //paymentIntendId?: string | undefined
     //stavkaPorudzbines:StavkaPorudzbine[]=[];
   }

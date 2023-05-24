@@ -10,7 +10,7 @@ namespace Core.Specification
         }
         public PorudzbinaWithDostavaAndKorisnik(int porudzbinaID) : base(x=>x.PorudzbinaId==porudzbinaID)
         {
-            AddInclude(x=>x.Dostava,y=>y.Korisnik,z=>z.StavkaPorudzbines);    
+            AddInclude(x=>x.Dostava,y=>y.Korisnik);    
         }
     }
 }

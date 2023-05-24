@@ -28,7 +28,7 @@ namespace Infrastructure.Data
         {
             return await ApplySpecification(spec).FirstOrDefaultAsync();
         }
-        
+
         public async Task<IReadOnlyList<T>> ListAsync(ISpecification<T> spec)
         {
             return await ApplySpecification(spec).ToListAsync();
@@ -92,6 +92,13 @@ namespace Infrastructure.Data
             dbContext.SaveChanges();
         }
 
-        
+        public async Task<T> Update(T updateRequest)
+        {
+            dbContext.Set<T>().Attach(updateRequest);
+            dbContext.Entry(updateRequest).State = EntityState.Modified;
+            // Save the changes to the database
+            dbContext.SaveChanges();
+            return updateRequest;
+        }
     }
 }

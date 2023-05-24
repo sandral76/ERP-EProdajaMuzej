@@ -7,7 +7,7 @@ public partial class Ulaznica
     [Key]
     public readonly int UlaznicaId;
 
-    public decimal? CenaUlaznice { get; set; }
+    public decimal CenaUlaznice { get; set; }
 
     public int IzlozbaId { get; set; }
 

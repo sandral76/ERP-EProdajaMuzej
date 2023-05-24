@@ -174,6 +174,14 @@ public partial class EProdajaMuzejContext : DbContext
             entity.Property(e => e.UkupanIznos)
                 .HasColumnType("decimal(5, 2)")
                 .HasColumnName("ukupan_iznos");
+            entity.Property(e => e.ClientSecret)
+            .HasMaxLength(100)
+            .IsUnicode(false)
+            .HasColumnName("clientSecret");
+            entity.Property(e => e.PaymentIntendId)
+            .HasMaxLength(100)
+            .IsUnicode(false)
+            .HasColumnName("paymentIntendId");
         });
 
         modelBuilder.Entity<Muzej>(entity =>
@@ -273,6 +281,10 @@ public partial class EProdajaMuzejContext : DbContext
                 .HasMaxLength(20)
                 .IsUnicode(false)
                 .HasColumnName("status_porudzbine");
+                entity.Property(e => e.PaymentIntendId)
+                .HasMaxLength(100)
+                .IsUnicode(false)
+                .HasColumnName("paymentIntendId");
 
             entity.HasOne(d => d.Dostava).WithMany(p => p.Porudzbinas)
                 .HasForeignKey(d => d.DostavaId)
@@ -343,7 +355,7 @@ public partial class EProdajaMuzejContext : DbContext
         modelBuilder.Entity<Ulaznica>(entity =>
         {
             entity.ToTable("Ulaznica", "EProdajaMuzej");
-           
+
             entity.Property(e => e.UlaznicaId)
                 .HasDefaultValueSql("(NEXT VALUE FOR [EProdajaMuzej].[UlaznicaID])")
                 .HasColumnType("numeric(5, 0)")

@@ -22,7 +22,7 @@ export class CheckoutComponent implements OnInit {
       prezime: ['', Validators.required],
     }),
     paymentForm: this.fb.group({
-      tipPlacanja: ['', Validators.required],
+      //tipPlacanja: ['', Validators.required],
       vlasnikKartice: ['', Validators.required],
     })
   })

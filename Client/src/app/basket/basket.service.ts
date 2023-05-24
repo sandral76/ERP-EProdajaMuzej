@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { BasketTotals, Korpa, StavkaPorudzbine } from '../shared/models/basket';
 import { HttpClient } from '@angular/common/http';
@@ -28,6 +28,15 @@ export class BasketService {
 
   constructor(private http: HttpClient) {
     this.korpa = this.getKorpaFromStorage() ?? this.createBasket();
+  }
+
+  createPaymentIntent(){
+    return this.http.post<Korpa>(this.baseUrl+'payment/'+this.getCurrentKorpaValue()?.korpaId,{}).pipe(
+      map(korpa=>{
+        this.korpaSource.next(korpa);
+        console.log(korpa);
+      })
+    )
   }
 
   getKorpa(korpaId: string | null) {

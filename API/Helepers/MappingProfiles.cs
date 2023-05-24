@@ -18,6 +18,11 @@ namespace API.Helepers
             CreateMap<Muzej, MuzejGradDTO>();
             CreateMap<Izlozba, IzlozbaDTO>();
             CreateMap<Korpa, KorpaDTO>();
+            CreateMap<Korpa, KorpaDTO2>();
+            CreateMap<KorpaDTO2, Korpa>();
+            CreateMap<Porudzbina, PorudzbinaDTO2>();
+            CreateMap<PorudzbinaDTO2, Porudzbina>();
+             CreateMap<StavkaPorudzbine, StavkaPorudzbineDTO2>();
             CreateMap<Korpa, KorpaBrojUlaznicaDTO>();
             CreateMap<DetaljiPorudzbine, DetaljiPorudzbineDTO>();
             CreateMap<IzlozbaUMuzeju, IzlozbaUMuzejuDTO>()
