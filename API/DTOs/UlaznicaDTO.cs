@@ -10,7 +10,8 @@ namespace API.DTOs
         public decimal? CenaUlaznice { get; set; }
 
         public string  Izlozba { get; set; } = null!;
-
+        public string? Slika { get; set; } 
+        
         public bool Dostupna { get; set; }
 
     }

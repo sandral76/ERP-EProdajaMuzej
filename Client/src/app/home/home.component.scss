@@ -3,6 +3,25 @@
 }
 img {
     object-fit: cover;
-    height: 600px;
+    height: 550px;
     width: 100%;
+}
+section{
+    padding: 2rem 7%;
+}
+section div h1{
+    font-size: 5rem;
+    text-transform: uppercase;
+    color: #fff;
+    align-self: center;
+    margin-right: 11rem;
+}
+section p{
+    font-size: 3rem;
+    font-weight: lighter;
+    line-height: 1.8;
+    padding: 1rem 0;
+    color: #eee;
+    margin-right: 11rem;
+   
 }

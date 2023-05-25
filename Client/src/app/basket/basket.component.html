@@ -1,6 +1,7 @@
 <div class="container">
     <div *ngIf="(basketService.korpaSource$ | async) === null">
-        <p>There are no items in your basket</p>
+        <p style="font-size: 25px;color: #d3ad7f;background-image: 
+        url('https://extension.harvard.edu/wp-content/uploads/sites/8/2020/10/museum.jpg');display: block;width: 100%;height: 500px;">Trenutno nemate ulaznica u korpi.</p>
     </div>
     <ng-container *ngIf="(basketService.korpaSource$ | async) as basket">
         <div class="container">
@@ -11,7 +12,9 @@
                 <div class="col-6 offset-6">
                     <app-order-totals></app-order-totals>
                     <div class="d-grid">
-                        <a routerLink="/checkout" class="btn btn-outline-primary py-2">Proceed to checkout</a>
+                        <a routerLink="/checkout" class="btn btn-outline-primary py-2" style=" font-size:2rem;padding:0 1rem;background-color: #d3ad7f;color: black; border: 2px solid;display: flex; align-items: center; justify-content: space-around;"
+                        onmouseover="this.style.color='black'; this.style.backgroundColor='white';"
+                        onmouseout="this.style.color='black'; this.style.backgroundColor='#d3ad7f'">Nastavite do plaćanja</a>
                     </div>
                 </div>
             </div>

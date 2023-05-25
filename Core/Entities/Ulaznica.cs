@@ -12,6 +12,7 @@ public partial class Ulaznica
     public int IzlozbaId { get; set; }
 
     public bool Dostupna {get; set;}
+    public string? Slika { get; set; } 
 
     public virtual Izlozba Izlozba { get; set; } = null!;
 

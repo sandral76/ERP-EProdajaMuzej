@@ -86,6 +86,7 @@ public partial class EProdajaMuzejContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("umetnik");
+                
         });
 
         modelBuilder.Entity<IzlozbaUMuzeju>(entity =>
@@ -369,6 +370,9 @@ public partial class EProdajaMuzejContext : DbContext
             entity.Property(e => e.Dostupna)
                 .HasColumnType("bool")
                 .HasColumnName("dostupna");
+                entity.Property(e => e.Slika)
+                .HasMaxLength(40)
+                .IsUnicode(false);
 
             entity.HasOne(d => d.Izlozba).WithMany(p => p.Ulaznicas)
                 .HasForeignKey(d => d.IzlozbaId)

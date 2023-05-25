@@ -38,6 +38,7 @@ namespace API.Controllers
         //[Authorize(Roles="Admin,Registrovani korisnik,Super korisnik")]
         public async Task<ActionResult<Pagination<UlaznicaDTO>>> GetUlaznice([FromQuery] UlazniceSpecParams parameters)
         {
+            try{
             var spec = new UlazniceOnIzlozbas(parameters);
             var countSpec = new UlazniceWithFiltersForCountSpecification(parameters);
             var totalItems = await ulaznicaRepo.CountAsync(countSpec);
@@ -45,7 +46,10 @@ namespace API.Controllers
             var ulaznice = await ulaznicaRepo.ListAsync(spec);
             var data = mapper.Map<IReadOnlyList<Ulaznica>, IReadOnlyList<UlaznicaDTO>>(ulaznice);
             //return Ok(mapper.Map<IReadOnlyList<Ulaznica>,IReadOnlyList<UlaznicaDTO>>(ulaznice));
-            return Ok(new Pagination<UlaznicaDTO>(parameters.PageIndex, parameters.PageSize, totalItems, data));
+            return Ok(new Pagination<UlaznicaDTO>(parameters.PageIndex, parameters.PageSize, totalItems, data));}
+            catch(Exception ex){
+                return StatusCode(500,ex.Message);
+            }
 
         }
 

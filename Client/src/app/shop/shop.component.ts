@@ -18,9 +18,9 @@ export class ShopComponent implements OnInit {
   //sortSelected='name';
   shopParams = new ShopParams();
   sortOptions = [
-    { name: 'Alphabetical', value: 'izlozba' },
-    { name: 'Price:Low to high', value: 'priceAsc' },
-    { name: 'Price:High to low', value: 'priceDesc' }];
+    { name: 'Nazivu rastuće', value: 'izlozba' },
+    { name: 'Ceni:od najniže ka najvišoj', value: 'priceAsc' },
+    { name: 'Ceni:od najviše ka najnižoj', value: 'priceDesc' }];
   totalCount = 0;
  
   constructor(private shopService: ShopService) { }

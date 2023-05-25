@@ -1,14 +1,18 @@
 <div class="container">
     <div class="row" *ngIf="muzejs.length>0">
         <section class="col-3">
-            <h5 class="text-warning ms-3">Sort</h5>
-            <select class="form-select mb-4" (change)="onSortSelected($event)">
-                <option *ngFor="let sort of sortOptions" [value]="sort.value">{{sort.name}}</option>
+            <h5 style="font-size: 25px;color: #d3ad7f;">Sortiraj po</h5>
+            <select class="form-select mb-4" style="font-size: 17px;color:black;" (change)="onSortSelected($event)" >
+                <option *ngFor="let sort of sortOptions" [value]="sort.value"
+                >{{sort.name}}</option>
             </select>
-            <h5 class="text-warning ms-3">Grad</h5>
-            <ul class="list-group my-3">
+            <h5 style="font-size: 25px;color: #d3ad7f;">Grad</h5>
+            <ul class="list-group my-3"  style="font-size: 17px;color:black;">
                 <li class="list-group-item" *ngFor="let m of muzejs" [class.active]="m.grad===shopParams.grad"
-                    [value]="m.grad" (click)="onMuzejSelected(m.grad)">{{m.grad}}</li>
+                [style.backgroundColor]="m.grad === shopParams.grad ? '#d3ad7f' : 'white'"
+                    [value]="m.grad" (click)="onMuzejSelected(m.grad)" 
+                    style="font-size: 17px;color:black;">
+                    {{m.grad}}</li>
             </ul>
         </section>
         <section class="col-9">
@@ -18,19 +22,23 @@
                 </app-paging-header>
                 <div class="d-flex mt-2">
                     <input (keyup.enter)="onSearch()" type="text" placeholder="Pretraga" class="form-control me-2"
-                        #search>
-                    <button (click)="onSearch()" class="btn btn-outline-primary mx-2">Pretrazi</button>
-                    <button (click)="onReset()" class="btn btn-outline-success">Reset</button>
+                        #search style="font-size: 17px;color: #d3ad7f; height:52px;">
+                    <button (click)="onSearch()" class="btn btn-outline-primary" style="font-size: 17px;color: #fff;margin-right:1.5rem;padding:0 24px;background-color:transparent"
+                    onmouseover="this.style.color='white'; this.style.backgroundColor='#d3ad7f';"
+                    onmouseout="this.style.color='white'; this.style.backgroundColor='transparent';">Pretraži</button>
+                    <button (click)="onReset()" class="btn btn-outline-success" style="font-size: 17px;color:#fff;padding: 0 24px;"
+                    onmouseover="this.style.color='white'; this.style.backgroundColor='#d2f8d2';"
+                    onmouseout="this.style.color='white'; this.style.backgroundColor='transparent';">Resetuj filtere</button>
                 </div>
             </div>
             <div class="row row-cols-3 g-3 mb-4">
                 <div class="col" *ngFor="let ulaznica of ulaznice">
-                    <app-ulaznica-stavka [ulaznica]="ulaznica"></app-ulaznica-stavka>
+                <app-ulaznica-stavka [ulaznica]="ulaznica"></app-ulaznica-stavka>
                 </div>
             </div>
-            <div class="d-flex justify-content-center" *ngIf="totalCount > 0">
+            <div class="d-flex justify-content-center" *ngIf="totalCount>0">
                 <app-pager [totalCount]="totalCount" [pageSize]="shopParams.pageSize"
-                    (pageChanged)="onPageChanged($event)">
+                    (pageChanged)="onPageChanged($event)" style="font-size: 17px;">
                 </app-pager>
             </div>
         </section>

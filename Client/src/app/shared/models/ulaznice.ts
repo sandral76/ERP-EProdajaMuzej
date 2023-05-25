@@ -3,4 +3,5 @@ export interface Ulaznica {
   cenaUlaznice: number
   izlozba: string
   dostupna: boolean
+  slika:string
 }

@@ -1,11 +1,13 @@
 <div class="container">
-    <ul class="nav nav-pills nav-justified">
+    <ul class="nav nav-pills nav-justified" style="font-size:20px;color: #d3ad7f;text-align: center;">
         <li class="nav-item" *ngFor="let step of steps; let i=index">
-            <div class="d-grid">
+            <div class="d-grid" >
                 <button (click)="onClick(i)" 
                 [disabled]="true"
                 [class.active]="selectedIndex===i"
-                    class="nav-link py-3 text-uppercase fw-bold">
+                [style.color]="selectedIndex===i ? 'rgb(233, 236, 239)' : '#d3ad7f'"
+                [style.backgroundColor]="selectedIndex===i ? '#d3ad7f' : 'rgb(233, 236, 239)'"
+                    class="nav-link py-3 text-uppercase fw-bold" style="font-size:20px;color: #d3ad7f">
                     {{step.label}}
                 </button>
             </div>

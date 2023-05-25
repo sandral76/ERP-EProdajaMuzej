@@ -1,22 +1,33 @@
-<div class="d-flex justify-content-center  mt-5">
+<div
+  style="background-image: url('https://www.travelandleisure.com/thmb/Om3sth4C6kRWrs2tdci3H0CnuH8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/gallery-uffizi-florence-italy-ONLINEMUSE0320-7c5f3904408c4c8aabd2f15cd6d47a4b.jpg');display: block;width: 100%;height: 800px;">
+  <div class="d-flex justify-content-center  mt-5">
     <div class="col-3">
       <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <div class="text-center mb-4">
-          <h1 class="mb-3">Registracija</h1>
+          <h1 style="font-size: 6rem;color: #d3ad7f;" class="mb-3">Registracija</h1>
         </div>
-        <app-text-input [formControl]="registerForm.controls['korisnickoIme']"[label]="'Korisnicko ime'" [type]="'text'"></app-text-input>
-        <app-text-input [formControl]="registerForm.controls['lozinka']" [label]="'Lozinka'" [type]="'password'"></app-text-input>
-        <app-text-input [formControl]="registerForm.controls['brojTel']"[label]="'Broj telefona'" [type]="'text'"></app-text-input>
-        <app-text-input [formControl]="registerForm.controls['email']"[label]="'Email'" [type]="'text'"></app-text-input>
-        <app-text-input [formControl]="registerForm.controls['ime']"[label]="'Ime'" [type]="'text'"></app-text-input>
-        <app-text-input [formControl]="registerForm.controls['prezime']"[label]="'Prezime'" [type]="'text'"></app-text-input>
+        <app-text-input style="font-size: 14px;" [formControl]="registerForm.controls['korisnickoIme']"
+          [label]="'Korisnicko ime'" [type]="'text'"></app-text-input>
+        <app-text-input style="font-size: 14px;" [formControl]="registerForm.controls['lozinka']" [label]="'Lozinka'"
+          [type]="'password'"></app-text-input>
+        <app-text-input style="font-size: 14px;" [formControl]="registerForm.controls['brojTel']"
+          [label]="'Broj telefona'" [type]="'text'"></app-text-input>
+        <app-text-input style="font-size: 14px;" [formControl]="registerForm.controls['email']" [label]="'Email'"
+          [type]="'text'"></app-text-input>
+        <app-text-input style="font-size: 14px;" [formControl]="registerForm.controls['ime']" [label]="'Ime'"
+          [type]="'text'"></app-text-input>
+        <app-text-input style="font-size: 14px;" [formControl]="registerForm.controls['prezime']" [label]="'Prezime'"
+          [type]="'text'"></app-text-input>
         <ul class="tex-danger list-unstyled" *ngIf="errors">
-            <li *ngFor="let error of errors">
-                {{error}}
-            </li>
+          <li *ngFor="let error of errors">
+            {{error}}
+          </li>
         </ul>
         <div class="d-grid">
-          <button [disabled]="registerForm.invalid" class="btn btn-lg btn-primary mt-3" type="submit">Registruj se</button>
+          <button [disabled]="registerForm.invalid" class="btn btn-lg btn-primary mt-3" type="submit"
+            style=" font-size:2rem;padding:0 1rem;background-color: #d3ad7f;color: black; border: 2px solid;display: flex; align-items: center; justify-content: space-around;"
+            onmouseover="this.style.color='black'; this.style.backgroundColor='white';"
+            onmouseout="this.style.color='black'; this.style.backgroundColor='#d3ad7f'">Registruj se</button>
         </div>
       </form>
     </div>

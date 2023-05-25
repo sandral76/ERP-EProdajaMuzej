@@ -1,45 +1,46 @@
-<header class="d-flex flex-row align-items-center justify-content-between p-3 px-4 mb-3
-bg-white border-bottom fixed-top shadow-sm">
-    <img src="/assets/slike/logo.png" alt="logo" class="logo" style="max-height: 70px;">
-    <nav class="my-2 text-uppercase fs-3">
-        <a class="p-2" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Pocetna</a>
-        <a class="p-2" routerLink="/shop" routerLinkActive="active">Shop</a>
+<header class="header">
+        <img src="/assets/slike/logo2.png" alt="logo" class="logo" style="max-height: 70px;">
+    <nav class="navbar">
+        <a class="p-2" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">POČETNA STRANA</a>
+        <a class="p-2" routerLink="/shop" routerLinkActive="active">ULAZNICE</a>
         <a class="p-2" routerLink="/test-error" routerLinkActive="active">Errors</a>
     </nav>
-    <div class="d-flex align-items-center">
+    <div class="icons">
         <a routerLink="/basket" class="position-relative">
-            <i class="fa fa-shopping-cart" style="font-size:35px;color:red"></i>
+            <i class="fa fa-shopping-cart" style="font-size:40px; color:#fff;"></i>
             <div class="cart-no">
-               {{basketService.brojUlaznica}}
+                {{basketService.brojUlaznica}}
             </div>
         </a>
         <ng-container *ngIf="(accountService.currentKorisnik$ | async)===null">
-            <a routerLink="/account/login" class="btn btn-outline-secondary me-1">Prijava</a>
-            <a routerLink="/account/register" class="btn btn-outline-secondary me-3">Registracija</a>
+            <a routerLink="/account/login" class="btn btn-outline-secondary header-navbar-link" style="font-size: 17px;color: #fff;" 
+            onmouseover="this.style.color='#d3ad7f'; this.style.borderBottom='.1rem solid #fff'; this.style.paddingBottom='.5rem';">Prijava</a>&nbsp;
+            <a routerLink="/account/register" class="btn btn-outline-secondary me-3 header-navbar-link" style="font-size: 17px;color: #fff;"
+            onmouseover="this.style.color='#d3ad7f'; this.style.borderBottom='.1rem solid #fff'; this.style.paddingBottom='.5rem';">Registracija</a>&nbsp;&nbsp;&nbsp;
         </ng-container>
         <ng-container *ngIf="accountService.currentKorisnik$ | async as korisnik">
             <div class="dropdown ms-3 me-5" style="cursor: pointer;" dropdown>
-            <a dropdownToggle class="dropdown-toggle">
-                <strong>Welcome {{korisnik.korisnickoIme}}</strong>
-            </a>
-            <ul *dropdownMenu class="dropdown-menu dropdown-menu-right">
-                <li class="py-1">
-                    <a routerLink="/basket" class="dropdown-item">
-                        <i class="fa fa-shopping-cart me-3"></i>View basket
-                    </a>
-                </li>
-                <li class="py-1">
-                    <a routerLink="/odrders" class="dropdown-item">
-                        <i class="fa fa-history me-3"></i>View orders
-                    </a>
-                </li>
-                <div class="dropdown-divider"></div>
-                <li class="py-1">
-                    <a (click)="accountService.logout()" class="dropdown-item">
-                        <i class="fa fa-sign-out me-3"></i>Logout
-                    </a>
-                </li>
-            </ul>
+                <a dropdownToggle class="dropdown-toggle">
+                    <strong style="color: #fff;">Zdravo, {{korisnik.korisnickoIme}} !</strong>
+                </a>
+                <ul *dropdownMenu class="dropdown-menu dropdown-menu-right">
+                    <li class="py-1" style="font-size: 17px;" >
+                        <a routerLink="/basket" class="dropdown-item">
+                            <i class="fa fa-shopping-cart me-3" style="color:#d3ad7f;"></i>Pogledaj korpu
+                        </a>
+                    </li>
+                    <li class="py-1" style="font-size: 17px;">
+                        <a routerLink="/odrders" class="dropdown-item">
+                            <i class="fa fa-history me-3" style="color:#d3ad7f;" ></i>Pogledaj porudzbine
+                        </a>
+                    </li>
+                    <div class="dropdown-divider" style="font-size: 17px;"></div>
+                    <li class="py-1" style="font-size: 17px;">
+                        <a (click)="accountService.logout()" class="dropdown-item">
+                            <i class="fa fa-sign-out me-3" style="color:#d3ad7f;"></i>Odjava
+                        </a>
+                    </li>
+                </ul>
 
             </div>
         </ng-container>

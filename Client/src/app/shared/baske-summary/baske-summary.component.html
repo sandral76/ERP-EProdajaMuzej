@@ -1,7 +1,7 @@
 <div class="table-responsive" *ngIf="basketService.korpa">
     <table class="table">
         <thead class="bg-light text-uppercase"[class.bg-light]="isBasket">
-            <tr>
+            <tr style="font-size:20px;color: #d3ad7f;text-align: center;">
                 <th>
                     <div class="py-2">Ulaznica</div>
                 </th>
@@ -17,16 +17,13 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let stavka of basketService.stavkePorudzbine">
+            <tr *ngFor="let stavka of basketService.stavkePorudzbine" style="font-size:20px;color: #d3ad7f;text-align: center;">
                 <th>
                     <div class="p-2 d-inline-block">
                         <div class="ms-3 d-inline-block align-middle">
                             <h5 class="mb-0"><a routerLink="/shop/{{stavka.stavkaPorudzbineId}}"
-                                    class="text-dark text-decoration-none">Izlozba:{{basketService.izlozba}}</a>
+                                    style="font-size:20px;color: #d3ad7f">Izlozba:{{basketService.izlozba}}</a>
                             </h5>
-                            <span class="text-muted fst-italic">
-                                Popust {{stavka.popustStavka | currency:'RSD'}}
-                            </span>
                         </div>
                     </div>
                 </th>
@@ -34,7 +31,7 @@
                 <td class="align-middle">
                     <div class="d-flex align-items-center" [class.jusify-content-center]="isBasket">
                         <!--<i class="fa fa-minus-circle text-warning me-2" style="cursor: pointer; font-size: 2em;"></i>-->
-                        <strong style="font-size: 1.2em;">1</strong>
+                        <strong style="font-size: 1.2em;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1</strong>
                         <!--<i class="fa fa-plus-circle text-warning mx-2" style="cursor: pointer; font-size: 2em;"></i>-->
                     </div>
                 </td>
@@ -42,7 +39,9 @@
                 <td class="align-middle">
                     <a class="text-danger">
                         <i (click)="removeStavkaPorudzbine(stavka.stavkaPorudzbineId)"
-                            class="fa fa-trash" style="font-size: 2em; cursor: pointer;"></i>
+                            class="fa fa-trash" style="font-size:2.75rem;padding:0 1rem;background-color: #d3ad7f;color: black; border: 2px solid;cursor: pointer;"
+                            onmouseover="this.style.color='black'; this.style.backgroundColor='white';"
+                            onmouseout="this.style.color='black'; this.style.backgroundColor='#d3ad7f'"></i>
                     </a>
                 </td>
             </tr>

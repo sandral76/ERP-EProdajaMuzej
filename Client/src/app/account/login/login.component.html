@@ -1,14 +1,22 @@
-<div class="d-flex justify-content-center  mt-5">
-  <div class="col-3">
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <div class="text-center mb-4">
-        <h1 class="mb-3">Prijava</h1>
-      </div>
-      <app-text-input [formControl]="loginForm.controls['korisnickoIme']"[label]="'Korisnicko ime'" [type]="'text'"></app-text-input>
-      <app-text-input [formControl]="loginForm.controls['lozinka']" [label]="'Lozinka'" [type]="'password'"></app-text-input>
-      <div class="d-grid">
-        <button [disabled]="loginForm.invalid" class="btn btn-lg btn-primary mt-3" type="submit">Prijavi se</button>
-      </div>
-    </form>
+<div
+  style="background-image: url('https://assets.citynavigator.nl/thumb/8P9CqefzAUOZEtkD6EHN-ZzMKoInFwlMR3PopoYJ0Vc/resizing_type:fit/width:960/height:0/gravity:sm/enlarge:0/aHR0cHM6Ly9hc3NldHMuY2l0eW5hdmlnYXRvci5ubC9rdW1hLWxlaWRlbi91cGxvYWRzL21lZGlhLzVmYmQxNTUxYjQ3ODMvcmlqa3NtdXNldW0tdmFuLW91ZGhlZGVuLWdyaWVrZW4tZm90by1taWtlLWJpbmsuanBn.jpg');display: block;width: 100%;height: 500px;">
+  <div class="d-flex justify-content-center mt-5">
+    <div class="col-3">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="text-center mb-4">
+          <h1 style="font-size: 6rem;color: #d3ad7f;" class="mb-3">Prijava</h1>
+        </div>
+        <app-text-input style="font-size: 14px;" [formControl]="loginForm.controls['korisnickoIme']"
+          [label]="'Korisnicko ime'" [type]="'text'"></app-text-input>
+        <app-text-input style="font-size: 14px;" [formControl]="loginForm.controls['lozinka']" [label]="'Lozinka'"
+          [type]="'password'"></app-text-input>
+        <div class="d-grid">
+          <button [disabled]="loginForm.invalid" class="btn btn-lg btn-primary mt-3" type="submit"
+            style=" font-size:2rem;padding:0 1rem;background-color: #d3ad7f;color: black; border: 2px solid;display: flex; align-items: center; justify-content: space-around;"
+            onmouseover="this.style.color='black'; this.style.backgroundColor='white';"
+            onmouseout="this.style.color='black'; this.style.backgroundColor='#d3ad7f'">Prijavi se</button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>

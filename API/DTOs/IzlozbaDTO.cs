@@ -12,5 +12,6 @@ namespace API.DTOs
     public string Umetnik { get; set; } = null!;
 
     public string NazivIzlozbe { get; set; } = null!;
+    
     }
 }

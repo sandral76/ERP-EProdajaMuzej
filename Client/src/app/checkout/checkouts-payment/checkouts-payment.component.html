@@ -1,38 +1,45 @@
 <div class="mt-4" *ngIf="checkoutForm" [formGroup]="checkoutForm">
     <div class="row">
         <div class="form-group col-12" formGroupName="paymentForm">
-            <app-text-input [label]="'Ime na kartici'" formControlName="vlasnikKartice"></app-text-input>
+            <app-text-input style="font-size: 14px;"[label]="'Ime na kartici'"
+                formControlName="vlasnikKartice"></app-text-input>
         </div>
     </div>
     <div class="row mb-3">
         <div class="col-6">
             <div class="form-floating">
-                <div class="form-control" #cardNumber></div>
-                <label>Broj kartice</label>
-                <span class="text-danger">{{cardErrors}}</span>
+                <div class="form-control" #cardNumber style="height:50px;font-size: 14px; margin-top: 20px;"></div>
+                <label style="font-size: 17px;margin-top: -5px;">Broj kartice</label>
+                <span class="text-danger" style="font-size: 17px; font-weight: bold;">{{cardErrors}}</span>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="form-floating" style="font-size: 14px;">
+                <div class="form-control" #cardExpiry style="height:50px;font-size: 14px;margin-top: 20px;"></div>
+                <label style="font-size: 17px;margin-top: -5px;">Datum isteka kartice</label>
             </div>
         </div>
         <div class="col-3">
             <div class="form-floating">
-                <div class="form-control" #cardExpiry></div>
-                <label>Datum isteka kartice</label>
-            </div>
-        </div>
-        <div class="col-3">
-            <div class="form-floating">
-                <div class="form-control" #cardCvc></div>
-                <label>CVC broj</label>
+                <div class="form-control" #cardCvc style="height:50px;font-size: 14px;margin-top: 20px;"></div>
+                <label style="font-size: 17px;margin-top: -5px;">CVC broj</label>
             </div>
         </div>
     </div>
 </div>
 <div class="d-flex justify-content-between flex-row mb-3" *ngIf="checkoutForm" [formGroup]="checkoutForm">
-    <button class="btn btn-outline-primary" cdkStepperPrevious>
+    <button class="btn btn-outline-primary" cdkStepperPrevious
+        style=" font-size:2rem;padding:0 1rem;background-color: #d3ad7f;color: black; border: 2px solid;display: flex; align-items: center; justify-content: space-around;"
+        onmouseover="this.style.color='black'; this.style.backgroundColor='white';"
+        onmouseout="this.style.color='black'; this.style.backgroundColor='#d3ad7f'">
         <i class="fa fa-angle-left"></i>
         Nazad na pregled porudzbine
     </button>
-    <button [disabled]="loading || !paymentFormComplete"class="btn btn-outline-primary" (click)="submitOrder()">
+    <button [disabled]="loading || !paymentFormComplete" class="btn btn-outline-primary" (click)="submitOrder()"
+        style=" font-size:2rem;padding:0 1rem;background-color: #d3ad7f;color: black; border: 2px solid;display: flex; align-items: center; justify-content: space-around;"
+        onmouseover="this.style.color='black'; this.style.backgroundColor='white';"
+        onmouseout="this.style.color='black'; this.style.backgroundColor='#d3ad7f'">
         Potvrdi porudzbinu<i class="fa fa-angle-right"></i>
-        <i *ngIf="loading"  class="fa fa-spinner fa-spin"></i>
+        <i *ngIf="loading" class="fa fa-spinner fa-spin"></i>
     </button>
 </div>
