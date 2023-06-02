@@ -55,6 +55,7 @@ namespace API.Controllers
 
         [HttpGet("{ulaznicaID}")]
         //[Authorize(Roles="Admin,Registrovani korisnik,Super korisnik")]
+        [EnableCors("AllowOrigin")]
         public async Task<ActionResult<UlaznicaDTO>> GetUlaznicaByID(int ulaznicaID)
         {
             var spec = new UlazniceOnIzlozbas(ulaznicaID);
@@ -65,6 +66,7 @@ namespace API.Controllers
 
         [HttpPost]
         //[Authorize(Roles="Admin")]
+        [EnableCors("AllowOrigin")]
         public async Task<ActionResult<UlaznicaDTO>> AddUlaznica(Ulaznica addUlaznicaRequest)
         {
             try
@@ -84,6 +86,7 @@ namespace API.Controllers
 
         [HttpPut("{ulaznicaID}")]
         //[Authorize(Roles="Admin")]
+        [EnableCors("AllowOrigin")]
         public async Task<ActionResult<UlaznicaDTO>> UpdateUlaznica(int ulaznicaID, Ulaznica updateUlaznicaRequest)
         {
             var updateUlaznica = await ulaznicaRepo.Update(updateUlaznicaRequest, ulaznicaID, (existingUlaznica, newUlaznica) =>

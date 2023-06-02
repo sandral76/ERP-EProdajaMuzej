@@ -1,0 +1,38 @@
+<button (click)="openModal()" style="font-size:2rem;">Dodaj/izmeni</button>
+<table class="my-table">
+  <thead style="color:rgb(233, 236, 239);background-color:#d3ad7f;font-size:30px;">
+    <tr>
+      <th>UlaznicaID</th>
+      <th>Cena ulaznice</th>
+      <th>Izlozba</th>
+      <th>Dostupna</th>
+      <th>Izmeni</th>
+      <th>Izbrisi</th>
+    </tr>
+  </thead>
+  <tbody style="font-size: 25px;color: wheat;">
+    <tr *ngFor="let element of dataSource">
+      <td>{{ element.ulaznicaId }}</td>
+      <td>{{ element.cenaUlaznice }}</td>
+      <td>{{ element.izlozba }}</td>
+      <td>{{ element.dostupna}}</td>
+      <td><button style="font-size:2rem;padding:0 1rem" class="edit-button" (click)="openEditModal(element)">Izmeni</button></td>
+      <td><button style="font-size:2rem;padding:0 1rem" class="edit-button" (click)="confirmDelete(element)">Izbrisi</button></td>
+    </tr>
+  </tbody>
+</table>
+<ng-template #deleteConfirmationModal>
+  <div class="modal-header">
+    <h4 class="modal-title">Potvrda brisanja</h4>
+    <button type="button" class="close" aria-label="Close" (click)="closeDeleteConfirmationModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    Da li ste sigurni da zelite da izbrisete ovu ulaznicu?
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="deleteUlaznica()">Delete</button>
+    <button type="button" class="btn btn-secondary" (click)="closeDeleteConfirmationModal()">Cancel</button>
+  </div>
+</ng-template>

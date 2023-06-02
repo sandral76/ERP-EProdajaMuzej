@@ -1,6 +1,6 @@
 <div class="products-container"
   style="display: grid;grid-template-columns: repeat(auto-fit,minimax(280px,auto));gap: 1.5rem;margin-top:2rem; background-color: aliceblue;"
-  *ngIf="ulaznica && !hideUlaznicaFlag">
+  *ngIf="ulaznica">
   <div class="box"
     style="position: relative; padding: 10px; display: flex;flex-direction: column;justify-content: center;border-radius: 0.5rem;box-shadow:0 3px 5px #d3ad7f;">
     <a href="" class="text-decoration-none">
@@ -16,7 +16,7 @@
         style=" font-size:2rem;padding:0 1rem;background-color: #d3ad7f;color: black; border: 4px; font-weight: 500;">{{ulaznica.cenaUlaznice
         |
         currency:'RSD'}}</span>
-      <button (click)="addStavkaPorudzbineToKorpa();hideUlaznica()" class="bt btn-primary fa fa-shopping-cart me-2"
+      <button (click)="addStavkaPorudzbineToKorpa()" class="bt btn-primary fa fa-shopping-cart me-2"
         style=" font-size:2.75rem;padding:0 1rem;background-color: #d3ad7f;color: black; border: 2px solid;"
         onmouseover="this.style.color='black'; this.style.backgroundColor='white';"
         onmouseout="this.style.color='black'; this.style.backgroundColor='#d3ad7f'"></button>

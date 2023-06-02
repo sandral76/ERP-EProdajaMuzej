@@ -55,15 +55,14 @@ namespace API.Controllers
             if (!string.IsNullOrEmpty(korisnickoImeClaim))
             {
                 var korisnik = dbContext.Korisniks.FirstOrDefault(u => u.KorisnickoIme == korisnickoImeClaim);
-                var loggedKorisnik = new LoginWithTokenDTO { KorisnickoIme = korisnik.KorisnickoIme, Lozinka = korisnik.Lozinka, Token = token };
+                var loggedKorisnik = new LoginWithTokenDTO {TipKorisnika=korisnik.TipKorisnikaId, KorisnickoIme = korisnik.KorisnickoIme, Lozinka = korisnik.Lozinka, Token = token, KorisnikId = korisnik.KorisnikId };
 
                 return loggedKorisnik;
             }
 
             return Unauthorized(new ApiResponses(401));
         }
-
-
+        
         [HttpPost]
         [Route("register")]
         [EnableCors("AllowOrigin")]
@@ -127,7 +126,7 @@ namespace API.Controllers
             };
 
             var token = GenerateNewJsonWebToken(authClaims);
-            var korisnik = new LoginWithTokenDTO { KorisnickoIme = isExistingKorisnik.KorisnickoIme, Lozinka = isExistingKorisnik.Lozinka, Token = token };
+            var korisnik = new LoginWithTokenDTO {TipKorisnika=isExistingKorisnik.TipKorisnikaId, KorisnikId = isExistingKorisnik.KorisnikId, KorisnickoIme = isExistingKorisnik.KorisnickoIme, Lozinka = isExistingKorisnik.Lozinka, Token = token };
             return Ok(korisnik);
 
         }
@@ -210,24 +209,6 @@ namespace API.Controllers
 
         }
 
-
-        /*public async Task<Porudzbina> CreatePorudzbinaAsync(string korisnickoIme, int korpaId, DetaljiPorudzbineDTO dostava)
-        {
-
-            var spec1 = new KorpaWithStavkaPorudzbine(korpaId);
-            var korpa = await korpaRepo.GetEntityWithSpec(spec1);
-
-            var stavke = new List<StavkaPorudzbine>();
-            foreach (var stavka in korpa.StavkaPorudzbines)
-            {
-                var spec2 = new StavkaPorudzbinaWithDatumKreiranja(stavka.StavkaPorudzbineId,stavka.UlaznicaId);
-                var stavkaPorudzbine= await stavkaRepo.GetEntityWithSpec(spec2);
-                stavke.Add(stavkaPorudzbine);
-            }
-            var ukupanIznos=stavke.Sum(stavka=>stavka.CenaStavka);
-
-            var porudzbina=new Porudzbina()
-        }*/
     }
 }
 

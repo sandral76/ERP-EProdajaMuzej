@@ -16,7 +16,7 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean> {
     return this.accountService.currentKorisnik$.pipe(
       map(auth => {
-        if (auth) return true;
+        if (auth) return true;  //auth.tipKorisnika-==1
         else {
           this.router.navigate(['/account/login'], { queryParams: { returnUrl: state.url } });
           return false

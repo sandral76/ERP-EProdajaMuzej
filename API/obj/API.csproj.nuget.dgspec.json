@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EprodajaMuzej\\API\\API.csproj": {}
+    "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EProdajaMuzej\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EprodajaMuzej\\API\\API.csproj": {
+    "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EProdajaMuzej\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EprodajaMuzej\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EProdajaMuzej\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EprodajaMuzej\\API\\API.csproj",
+        "projectPath": "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EProdajaMuzej\\API\\API.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EprodajaMuzej\\API\\obj\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EProdajaMuzej\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,11 +28,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EprodajaMuzej\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EprodajaMuzej\\Core\\Core.csproj"
+              "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EProdajaMuzej\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EProdajaMuzej\\Core\\Core.csproj"
               },
-              "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EprodajaMuzej\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EprodajaMuzej\\Infrastructure\\Infrastructure.csproj"
+              "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EProdajaMuzej\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EProdajaMuzej\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }
@@ -119,14 +119,14 @@
         }
       }
     },
-    "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EprodajaMuzej\\Core\\Core.csproj": {
+    "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EProdajaMuzej\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EprodajaMuzej\\Core\\Core.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EProdajaMuzej\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EprodajaMuzej\\Core\\Core.csproj",
+        "projectPath": "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EProdajaMuzej\\Core\\Core.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EprodajaMuzej\\Core\\obj\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EProdajaMuzej\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -184,14 +184,14 @@
         }
       }
     },
-    "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EprodajaMuzej\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EProdajaMuzej\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EprodajaMuzej\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EProdajaMuzej\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EprodajaMuzej\\Infrastructure\\Infrastructure.csproj",
+        "projectPath": "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EProdajaMuzej\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EprodajaMuzej\\Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EProdajaMuzej\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -208,8 +208,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EprodajaMuzej\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EprodajaMuzej\\Core\\Core.csproj"
+              "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EProdajaMuzej\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\User\\Desktop\\8.semestar\\ERP-Teodora\\projekat\\EProdajaMuzej\\Core\\Core.csproj"
               }
             }
           }

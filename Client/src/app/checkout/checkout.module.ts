@@ -4,7 +4,6 @@ import { CheckoutComponent } from './checkout.component';
 import { CheckoutRoutingModule } from './checkout-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { CheckoutsAddressComponent } from './checkouts-address/checkouts-address.component';
-import { CheckoutsDeliveryComponent } from './checkouts-delivery/checkouts-delivery.component';
 import { CheckoutsReviewComponent } from './checkouts-review/checkouts-review.component';
 import { CheckoutsPaymentComponent } from './checkouts-payment/checkouts-payment.component';
 import { CheckoutsSuccessComponent } from './checkouts-success/checkouts-success.component';
@@ -13,7 +12,6 @@ import { CheckoutsSuccessComponent } from './checkouts-success/checkouts-success
   declarations: [
     CheckoutComponent,
     CheckoutsAddressComponent,
-    CheckoutsDeliveryComponent,
     CheckoutsReviewComponent,
     CheckoutsPaymentComponent,
     CheckoutsSuccessComponent

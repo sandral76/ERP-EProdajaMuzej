@@ -10,7 +10,6 @@ import { OrdersService } from './orders.service';
 export class OrdersComponent implements OnInit {
   orders: Porudzbina[] = [];
   constructor(private orderService: OrdersService) {
-
   }
   ngOnInit(): void {
     this.getOrders();

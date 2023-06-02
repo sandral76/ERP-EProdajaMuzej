@@ -15,11 +15,11 @@ export class UlaznicaStavkaComponent {
   addStavkaPorudzbineToKorpa() {
     this.ulaznica && this.basketService.addStavkaPorudzbineToKorpa(this.ulaznica);
   }
-  hideUlaznicaFlag: boolean = false;
+  //hideUlaznicaFlag: boolean = false;
 
-  hideUlaznica() {
+  /*hideUlaznica() {
     this.hideUlaznicaFlag = true;
-  }
+  }*/
   
 
 }

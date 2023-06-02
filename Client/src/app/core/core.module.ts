@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { RouterModule } from '@angular/router';
-import { TestErrorComponent } from './test-error/test-error.component';
+import { AdminComponent } from './admin/admin.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ServerErrorComponent } from './server-error/server-error.component';
 import { ToastrModule } from 'ngx-toastr';
@@ -10,14 +10,17 @@ import { SectionHeaderComponent } from './section-header/section-header.componen
 import { BreadcrumbModule} from 'xng-breadcrumb';
 import { NgxSpinnerComponent, NgxSpinnerModule } from 'ngx-spinner';
 import { SharedModule } from '../shared/shared.module';
+import { SideBarComponent } from './side-bar/side-bar.component';
+
 
 @NgModule({
   declarations: [
     NavBarComponent,
-    TestErrorComponent,
+    AdminComponent,
     NotFoundComponent,
     ServerErrorComponent,
-    SectionHeaderComponent
+    SectionHeaderComponent,
+    SideBarComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +31,7 @@ import { SharedModule } from '../shared/shared.module';
     }),
     BreadcrumbModule,
     NgxSpinnerModule,
-    SharedModule
+    SharedModule,
   ],
   exports:[
     NavBarComponent,

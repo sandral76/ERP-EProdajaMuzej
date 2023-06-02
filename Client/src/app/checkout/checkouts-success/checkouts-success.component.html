@@ -1,11 +1,11 @@
 <div class="container mt-5">
     <div><i class="fa fa-check-circle fa-5x" style="color: green;"></i></div>
-    <h2>Thank you. Your order is confirmed</h2>
-    <p class="mb-4">Your order has not shipped yet, but this is to be expected as we a
-    re not a real store!</p>
-
-    <button *ngIf="!order"
-    routerLink="/orders" class="btn btn-outline-success">
-    View your orders
+    <h2 style="font-size: 6rem;color: white;">Vaša porudzbina je kreirana uspešno!</h2>
+    <button style=" font-size:2rem;" *ngIf="order" routerLink="/orders/{{order.porudzbinaId}}"
+        class="btn btn-outline-success">
+        Pogledaj kreiranu porudzbinu
     </button>
-    </div>
+    <button *ngIf="!order" routerLink="/orders" class="btn btn-outline-success">
+        View your orders
+    </button>
+</div>

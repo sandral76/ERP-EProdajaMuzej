@@ -1,9 +1,11 @@
 <header class="header">
         <img src="/assets/slike/logo2.png" alt="logo" class="logo" style="max-height: 70px;">
     <nav class="navbar">
-        <a class="p-2" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">POČETNA STRANA</a>
-        <a class="p-2" routerLink="/shop" routerLinkActive="active">ULAZNICE</a>
-        <a class="p-2" routerLink="/test-error" routerLinkActive="active">Errors</a>
+            <a class="p-2" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">POČETNA STRANA</a>
+             <a class="p-2" routerLink="/shop" routerLinkActive="active">ULAZNICE</a>
+             <ng-container *ngIf="accountService.currentKorisnik$ | async as korisnik">
+            <a class="p-2" *ngIf="korisnik.tipKorisnika === 1;" routerLink="/admin" routerLinkActive="active">ADMIN PANEL</a>
+          </ng-container>
     </nav>
     <div class="icons">
         <a routerLink="/basket" class="position-relative">

@@ -130,6 +130,7 @@ namespace API.Controllers
                 existingPorudzbina.DatumAzuriranja = newPorudzbina.DatumAzuriranja;
                 existingPorudzbina.DostavaId = newPorudzbina.DostavaId;
                 existingPorudzbina.KorisnikId = newPorudzbina.KorisnikId;
+                existingPorudzbina.PaymentIntendId=newPorudzbina.PaymentIntendId;
                 return existingPorudzbina;
             });
             var spec = new PorudzbinaWithDostavaAndKorisnik(porudzbinaID);

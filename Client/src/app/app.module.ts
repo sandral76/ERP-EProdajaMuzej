@@ -15,10 +15,15 @@ import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
 import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 import { OrderDetailedComponent } from './order-detailed/order-detailed.component';
+import { AdminUlaznicaComponent } from './admin/components/admin-ulaznica/admin-ulaznica.component';
+import { AddUpdateUlaznicaDialogComponent } from './admin/components/add-update-ulaznica-dialog/add-update-ulaznica-dialog.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
     AppComponent,
+    AdminUlaznicaComponent,
+    AddUpdateUlaznicaDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +36,8 @@ import { OrderDetailedComponent } from './order-detailed/order-detailed.componen
     CoreModule,
     FormsModule,
     NgxPaginationModule,
-    HomeModule
+    HomeModule,
+    ModalModule.forRoot()
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:ErrorInterceptor,multi:true},

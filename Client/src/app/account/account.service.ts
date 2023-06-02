@@ -28,7 +28,9 @@ export class AccountService {
       map(korisnik => {
         if (korisnik) {
           localStorage.setItem('token', korisnik.token);
+          localStorage.setItem('korisnik_id', korisnik.korisnikId.toString());
           this.currentKorisnikSource.next(korisnik);
+          console.log(korisnik);
           return korisnik;
         } else {
           return null
@@ -37,12 +39,16 @@ export class AccountService {
     )
   }
 
+  
   login(values: any) {
     return this.http.post<Korisnik>(this.baseUrl + 'auth/login', values).pipe(
       map(korisnik => {
         localStorage.setItem('token', korisnik.token);
+        localStorage.setItem('korisnik_id', korisnik.korisnikId.toString());
         this.currentKorisnikSource.next(korisnik);
+        console.log(korisnik);
         return korisnik;
+        
       })  //subscribe(korisnik=>console.log(korisnik))
     )
   }
@@ -51,6 +57,7 @@ export class AccountService {
     return this.http.post<Korisnik>(this.baseUrl + 'auth/register', values).pipe(
       map(korisnik => {
         localStorage.setItem('token', korisnik.token);
+        localStorage.setItem('korisnik_id', korisnik.korisnikId.toString());
         this.currentKorisnikSource.next(korisnik);
       })
     )
@@ -58,6 +65,7 @@ export class AccountService {
 
   logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('korisnik_id');
     this.currentKorisnikSource.next(null);
     this.router.navigateByUrl('/');
   }
@@ -66,10 +74,10 @@ export class AccountService {
     return this.http.get<boolean>(this.baseUrl + 'auth/korisnickoImeexists?korisnickoIme=' + korisnickoIme);
   }
 
-  getKorisnikDetaljiPorudzbine(){
-    return this.http.get<DetaljiPorudzbine>(this.baseUrl+'auth/dostava',)
+  getKorisnikDetaljiPorudzbine() {
+    return this.http.get<DetaljiPorudzbine>(this.baseUrl + 'auth/dostava',)
   }
-  updateKorisnikDetaljiPorudzbine(detaljiPorudzbine:DetaljiPorudzbine){
-    return this.http.put(this.baseUrl+'auth/dostava',detaljiPorudzbine);
+  updateKorisnikDetaljiPorudzbine(detaljiPorudzbine: DetaljiPorudzbine) {
+    return this.http.put(this.baseUrl + 'auth/dostava', detaljiPorudzbine);
   }
 }

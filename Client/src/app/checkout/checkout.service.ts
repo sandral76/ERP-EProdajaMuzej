@@ -11,8 +11,9 @@ export class CheckoutService {
   
   constructor(private http:HttpClient){ }
 
-  createOrder(porudzbina:Porudzbina){
-    return this.http.post<Porudzbina>(this.baseUrl+'porudzbina',porudzbina)
+  createOrder(porudzbina:Porudzbina,porudzbinaId:number){
+    console.log(porudzbina);
+    return this.http.put<Porudzbina>(this.baseUrl+'porudzbina/'+porudzbinaId,porudzbina)
   }
 
 

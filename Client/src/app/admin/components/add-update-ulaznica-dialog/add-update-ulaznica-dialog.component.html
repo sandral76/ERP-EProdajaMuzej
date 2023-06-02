@@ -1,0 +1,36 @@
+<div class="modal-header">
+    <h4 class="modal-title">Dodaj/izmeni ulaznicu</h4>
+    <button type="button" class="close" (click)="closeModal()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body" style="font-size: 2rem;">
+    <form (ngSubmit)="closeModal()">
+        <div class="form-group">
+            <label for="ulaznicaId">Ulaznica ID:</label>
+            <input type="number" class="form-control" id="ulaznicaId" name="ulaznicaId" [(ngModel)]="ulaznicaId" required>
+        </div>
+        <div class="form-group">
+            <label for="cenaUlaznice">Cena ulaznice:</label>
+            <input type="number" class="form-control" id="cenaUlaznice" name="cenaUlaznice" [(ngModel)]="cenaUlaznice"
+                required>
+        </div>
+        <div class="form-group">
+            <label for="izlozba">Izlozba:</label>
+            <input type="number" class="form-control" id="izlozba" name="izlozba" [(ngModel)]="izlozbaId" required>
+        </div>
+        <div class="form-group">
+            <label for="dostupna">Dostupna:</label>
+            <select class="form-control" id="dostupna" name="dostupna" [(ngModel)]="dostupna">
+              <option value="true">True</option>
+              <option value="false">False</option>
+            </select>
+          </div>
+        <div class="form-group">
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button style="font-size:2rem;padding:0 1rem" type="submit" (click)="updateUlaznica()" class="btn btn-primary">Sacuvaj</button>
+    <button style="font-size:2rem;padding:0 1rem" type="button" class="btn btn-secondary" (click)="closeModal()">Zatvori</button>
+</div>

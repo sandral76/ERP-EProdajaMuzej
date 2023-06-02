@@ -1,0 +1,8 @@
+<div class="container">
+<div class="sidebar-item" *ngFor="let item of sidebarlist;
+let i=index" 
+[ngClass]="{'sidebar-item-active':item.active,'sidebar-item':item.active}" (click)="this.changeRoute(i)"
+routerLink="/admin/{{item.link}}">
+    <h1 style="color: white;">{{item.label}}</h1>
+</div>
+</div>

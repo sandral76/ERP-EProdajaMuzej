@@ -43,7 +43,7 @@ export class CheckoutsPaymentComponent implements OnInit {
         this.cardNumber.mount(this.cardNumberElement?.nativeElement);
         this.cardNumber.on('change', event => {
           this.cardNumberComplete=event.complete;
-          if (event.error) this.cardErrors = event.error.message;
+          if (event.error) this.cardErrors ="Popunite broj kartice do kraja!";
           else this.cardErrors = null;
         })
 
@@ -51,7 +51,7 @@ export class CheckoutsPaymentComponent implements OnInit {
         this.cardExpiry.mount(this.cardExpiryElement?.nativeElement);
         this.cardExpiry.on('change', event => {
           this.cardExpiryComplete=event.complete;
-          if (event.error) this.cardErrors = event.error.message;
+          if (event.error) this.cardErrors = "Godina isteka kartice je nevazeca!";
           else this.cardErrors = null;
         })
 
@@ -59,7 +59,7 @@ export class CheckoutsPaymentComponent implements OnInit {
         this.cardCvc.mount(this.cardCvcElement?.nativeElement);
         this.cardCvc.on('change', event => {
           this.cardCvcComplete=event.complete;
-          if (event.error) this.cardErrors = event.error.message;
+          if (event.error) this.cardErrors = "CVC broj nije potpun!";
           else this.cardErrors = null;
         })
       }
@@ -106,7 +106,8 @@ export class CheckoutsPaymentComponent implements OnInit {
   private async createPorudzbina(basket: Korpa | null) {
     if (!basket) throw new Error('Korpa je prazna.');
     const porudzbinaToCreate = this.getPorudzbinaToCreate(basket);
-    return firstValueFrom(this.checkoutService.createOrder(porudzbinaToCreate));
+    const porudzbinaId=Number(localStorage.getItem('porudzbina_id'))
+    return firstValueFrom(this.checkoutService.createOrder(porudzbinaToCreate,porudzbinaId));
   }
   private getPorudzbinaToCreate(korpa: Korpa): Porudzbina {
     return {
@@ -115,10 +116,10 @@ export class CheckoutsPaymentComponent implements OnInit {
       iznosPorudzbine: korpa.ukupanIznos,
       popustNaPorudzbinu: 0.0,
       datumAzuriranja: new Date().toISOString().substring(0, 10),
-      dostavaId: 1, // Specify the necessary details for the dostava property
-      korisnikId: 6,
+      dostavaId: 1,
+      korisnikId:Number(localStorage.getItem('korisnik_id')) ,
       paymentIntendId:korpa.paymentIntendId
-      //stavkaPorudzbines:[] // Provide an array of StavkaPorudzbine objects
+      //stavkaPorudzbines:[]
     };
     /*const addressForm = this.checkoutForm?.get('addressForm')?.value as DetaljiPorudzbine;
     console.log(addressForm);

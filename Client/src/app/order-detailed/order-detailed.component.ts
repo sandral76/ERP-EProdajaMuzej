@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Porudzbina } from '../shared/models/porudzbina';
 import { OrdersService } from '../orders/orders.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 import { BreadcrumbService } from 'xng-breadcrumb';
 import { StavkaPorudzbine } from '../shared/models/basket';
 
@@ -22,7 +22,7 @@ export class OrderDetailedComponent implements OnInit {
     id && this.orderService.getOrderDetailed(+id).subscribe({
       next: order => {
         this.order = order;
-        this.bcService.set('@OrderDetailed', `Order# ${this.stavka?.stavkaPorudzbineId} - ${order.statusPorudzbine}`);
+        this.bcService.set('@OrderDetailed', `Porudzbina# ${order.porudzbinaId} - ${order.statusPorudzbine}`);
       }
     })
   }
