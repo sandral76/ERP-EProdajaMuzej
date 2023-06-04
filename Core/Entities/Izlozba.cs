@@ -10,7 +10,6 @@ public partial class Izlozba
     [Required(ErrorMessage="Morate uneti naziv izložbe.")]
     public string NazivIzlozbe { get; set; } = null!;
    
-
     public virtual ICollection<IzlozbaUMuzeju> IzlozbaUMuzejus { get; } = new List<IzlozbaUMuzeju>();
 
     public virtual ICollection<Ulaznica> Ulaznicas { get; } = new List<Ulaznica>();

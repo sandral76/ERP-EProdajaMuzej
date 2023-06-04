@@ -18,7 +18,7 @@ export class ShopComponent implements OnInit {
   //sortSelected='name';
   shopParams = new ShopParams();
   sortOptions = [
-    { name: 'Nazivu rastuće', value: 'izlozba' },
+    { name: 'Nazivu izložbe rastuće', value: 'izlozba' },
     { name: 'Ceni:od najniže ka najvišoj', value: 'priceAsc' },
     { name: 'Ceni:od najviše ka najnižoj', value: 'priceDesc' }];
   totalCount = 0;
@@ -74,9 +74,7 @@ export class ShopComponent implements OnInit {
       this.shopParams.pageNumber = event;
       this.getU();
    }
-
   }
- 
   onSearch(){
     this.shopParams.search=this.searchTerm?.nativeElement.value;
     this.shopParams.pageNumber=1;

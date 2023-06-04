@@ -96,7 +96,6 @@ namespace Infrastructure.Data
         {
             dbContext.Set<T>().Attach(updateRequest);
             dbContext.Entry(updateRequest).State = EntityState.Modified;
-            // Save the changes to the database
             dbContext.SaveChanges();
             return updateRequest;
         }

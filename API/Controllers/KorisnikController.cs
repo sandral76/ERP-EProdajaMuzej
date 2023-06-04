@@ -104,7 +104,7 @@ namespace API.Controllers
             return mapper.Map<Korisnik, KorisnikDTO>(korisnik);
         }
         [HttpDelete("{korisnikID}")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<OkResult> DeleteKorisnik(int korisnikID)
         {
             korisnikRepo.Delete(korisnikID);

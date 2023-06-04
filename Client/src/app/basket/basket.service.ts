@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { BasketTotals, Korpa, StavkaPorudzbine } from '../shared/models/basket';
+import { BasketTotals, Korpa, Porudzbina, StavkaPorudzbine } from '../shared/models/basket';
 import { HttpClient } from '@angular/common/http';
 import { Ulaznica } from '../shared/models/ulaznice';
 import { ToastrService } from 'ngx-toastr';
@@ -14,9 +14,11 @@ export class BasketService {
     baseUrl = environment.apiUrl;
     private korpaSource = new BehaviorSubject<Korpa | null>(null);
     private stavkaSource = new BehaviorSubject<StavkaPorudzbine | null>(null);
+    private porudzbinaSource = new BehaviorSubject<Porudzbina | null>(null);
     private basketTotalsSource = new BehaviorSubject<BasketTotals | null>(null);
     korpaSource$ = this.korpaSource.asObservable();
     stavkaSource$ = this.stavkaSource.asObservable();
+    porudzbinaSource$ = this.porudzbinaSource.asObservable();
     basketTotalsSource$ = this.basketTotalsSource.asObservable();
     brojUlaznica: number = 0;
     shipping: number = 0;
@@ -29,6 +31,7 @@ export class BasketService {
 
     constructor(private http: HttpClient, private toastr: ToastrService) {
         this.korpa = this.getKorpaFromStorage() ?? this.createBasket();
+        this.createPorudzbina();
     }
 
     createPaymentIntent() {
@@ -40,7 +43,7 @@ export class BasketService {
         )
     }
 
-    getKorpa(korpaId: string | null) {
+    getKorpa(korpaId: number | null) {
         return this.http.get<Korpa>(this.baseUrl + 'korpa/' + korpaId).subscribe({
             next: korpa => {
                 this.korpaSource.next(korpa);
@@ -58,6 +61,14 @@ export class BasketService {
         return this.http.post<Korpa>(this.baseUrl + 'korpa', korpa).subscribe({
             next: korpa => {
                 this.korpaSource.next(korpa);
+                //this.calculateTotals();
+            }
+        })
+    }
+    addPorudbina(porudzbina: Porudzbina) {
+        return this.http.post<Porudzbina>(this.baseUrl + 'porudzbina', porudzbina).subscribe({
+            next: porudzbina => {
+                this.porudzbinaSource.next(porudzbina);
                 //this.calculateTotals();
             }
         })
@@ -81,7 +92,7 @@ export class BasketService {
         this.korpa.stavkaPorudzbines = this.addOrUpdateItem(this.korpa.stavkaPorudzbines, stavkaToAdd);
         //this.addKorpa(this.korpa)
         this.addStavka(stavkaToAdd)
-        this.getKorpa(localStorage.getItem('korpa_id'));
+        this.getKorpa(Number(localStorage.getItem('korpa_id')));
     }
 
     removeStavkaFromKorpa(stavkaPorudzbineId: number) {
@@ -126,11 +137,18 @@ export class BasketService {
             this.subtotal = this.stavkePorudzbine.reduce((subt, s) => subt + s.cenaStavka, 0)
             this.korpa.ukupanIznos = this.subtotal
             this.total = this.subtotal + this.shipping;
+            this.toastr.success('Uspešno ste dodali ulaznicu u korpu!.');
         }
         return stavkaPorudzbines;
     }
 
-
+    createPorudzbina(): Porudzbina {
+        const porudzbina = new Porudzbina();
+        //localStorage.setItem('korpa_id',basket.korpaId);
+        localStorage.setItem('porudzbina_id', porudzbina.porudzbinaId.toString());
+        this.addPorudbina(porudzbina);
+        return porudzbina;
+    }
     createBasket(): Korpa {
         const basket = new Korpa();
         //localStorage.setItem('korpa_id',basket.korpaId);
@@ -146,7 +164,7 @@ export class BasketService {
             popustStavka: 0,
             ulaznicaId: ulaznica.ulaznicaId,
             korpaId: this.korpa.korpaId,
-            porudzbinaId: 2,
+            porudzbinaId: Number(localStorage.getItem('porudzbina_id')),
             izlozba: ulaznica.izlozba,
             dostupna: ulaznica.dostupna
         }

@@ -5,8 +5,9 @@ public partial class Korisnik
 {
     [Key]
     public int KorisnikId { get; set; }
-        
+
     [Required(ErrorMessage="Morate uneti korisničko ime.")]
+    [RegularExpression("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*\\W).+$")]
     public string KorisnickoIme { get; set; } = null!;
         
     [Required(ErrorMessage="Morate uneti lozinku.")]

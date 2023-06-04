@@ -15,9 +15,9 @@
             </div>
         </a>
         <ng-container *ngIf="(accountService.currentKorisnik$ | async)===null">
-            <a routerLink="/account/login" class="btn btn-outline-secondary header-navbar-link" style="font-size: 17px;color: #fff;" 
+            <a routerLink="/profil/prijava" class="btn btn-outline-secondary header-navbar-link" style="font-size: 17px;color: #fff;" 
             onmouseover="this.style.color='#d3ad7f'; this.style.borderBottom='.1rem solid #fff'; this.style.paddingBottom='.5rem';">Prijava</a>&nbsp;
-            <a routerLink="/account/register" class="btn btn-outline-secondary me-3 header-navbar-link" style="font-size: 17px;color: #fff;"
+            <a routerLink="/profil/registracija" class="btn btn-outline-secondary me-3 header-navbar-link" style="font-size: 17px;color: #fff;"
             onmouseover="this.style.color='#d3ad7f'; this.style.borderBottom='.1rem solid #fff'; this.style.paddingBottom='.5rem';">Registracija</a>&nbsp;&nbsp;&nbsp;
         </ng-container>
         <ng-container *ngIf="accountService.currentKorisnik$ | async as korisnik">

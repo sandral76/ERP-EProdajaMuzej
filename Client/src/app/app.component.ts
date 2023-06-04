@@ -16,11 +16,10 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.loadKorpa();
     this.loadCurrentKorisnik();
-    
   }
 
   loadKorpa(){
-    const korpaId=localStorage.getItem('korpa_id');  //ili korpa samo
+    const korpaId=Number(localStorage.getItem('korpa_id'));  //ili korpa samo
     if(korpaId) this.basketService.getKorpa(korpaId);
   }
   loadCurrentKorisnik(){

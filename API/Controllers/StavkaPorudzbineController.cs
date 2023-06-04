@@ -24,7 +24,8 @@ namespace API.Controllers
                 this.dbContext=dbContext;
         }
         [HttpGet]
-        //[Authorize(Roles="Admin,Registrovani korisnik,Super korisnik")]
+        [Authorize(Roles="Admin,Registrovani korisnik,Super korisnik")]
+        [EnableCors("AllowOrigin")]
         public async Task<ActionResult<IReadOnlyList<StavkaPorudzbineDTO>>> GetStavkaPorudzbine()
         {
             var spec = new StavkaPorudzbinaWithDatumKreiranja();
@@ -40,7 +41,7 @@ namespace API.Controllers
             return mapper.Map<StavkaPorudzbine,StavkaPorudzbineDTO>(stavkaPorudzbine);
         }
         [HttpPost]
-        //[Authorize(Roles="Admin,Registrovani korisnik,Super korisnik")]
+        [Authorize(Roles="Admin,Registrovani korisnik,Super korisnik")]
         [EnableCors("AllowOrigin")]
         public async Task<ActionResult<StavkaPorudzbineDTO>> AddStavkaPorudzbine(StavkaPorudzbine addStavkaPorudzbineRequest)
         {
@@ -52,6 +53,7 @@ namespace API.Controllers
         }
         [HttpPut("{stavkaPorudzbineID}/{ulaznicaID}")]
         [Authorize(Roles="Admin,Registrovani korisnik,Super korisnik")]
+        [EnableCors("AllowOrigin")]
         public async Task<ActionResult<StavkaPorudzbineDTO>> UpdateStavkaPorudzbine(int stavkaPorudzbineID,int ulaznicaID, StavkaPorudzbine updateStavkaPorudzbineRequest)
         {
             var updateStavkaPorudzbine=await stavkaPorudzbineRepo.Update(updateStavkaPorudzbineRequest,stavkaPorudzbineID,ulaznicaID,(existingStavkaPorudzbine,newStavkaPorudzbine)=>{
@@ -67,7 +69,7 @@ namespace API.Controllers
             return mapper.Map<StavkaPorudzbine,StavkaPorudzbineDTO>(stavkaPorudzbine);
         }
         [HttpDelete("{stavkaPorudzbineID}/{ulaznicaID}")]
-        //[Authorize(Roles="Admin,Registrovani korisnik,Super korisnik")]
+        [Authorize(Roles="Admin,Registrovani korisnik,Super korisnik")]
         [EnableCors("AllowOrigin")]
         public async Task<OkResult> DeleteStavkaPorudzbine(int stavkaPorudzbineID,int ulaznicaID)
         {

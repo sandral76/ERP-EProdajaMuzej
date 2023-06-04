@@ -1,6 +1,4 @@
 using System.ComponentModel.DataAnnotations;
-using Core.Entities;
-using Core.Specification;
 
 namespace API.DTOs
 {
